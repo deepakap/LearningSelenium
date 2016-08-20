@@ -3,12 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.app.pomTest.LoginTest">
+      <class name="com.app.testGuru.first.SortWebElements">
         <methods>
-          <include name="performSetUp"/>
-          <include name="homePage"/>
+          <include name="afterTest"/>
+          <include name="addToWishList"/>
+          <include name="beforeTest"/>
+          <include name="verifyRegisteration"/>
         </methods>
-      </class> <!-- com.app.pomTest.LoginTest -->
+      </class> <!-- com.app.testGuru.first.SortWebElements -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

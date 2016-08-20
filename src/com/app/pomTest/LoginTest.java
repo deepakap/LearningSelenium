@@ -22,8 +22,8 @@ public class LoginTest {
   public void homePage() {
 	  page = new LoginPage(driver);
 	  //Assert.assertEquals(page.getPageTitle(),expTitle);
-	  page.setUserName("swift007.deepak@gmail.com");
-	  page.setPassword("04087064@face");
+	  page.setUserName("---------@gmail.com");
+	  page.setPassword("---------");
 	  page.clickLogin();
 	   
   }
