@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10735" started-at="2016-08-19T03:34:28Z" finished-at="2016-08-19T03:34:39Z">
+  <suite name="Default suite" duration-ms="7534" started-at="2016-08-20T23:22:17Z" finished-at="2016-08-20T23:22:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10735" started-at="2016-08-19T03:34:28Z" finished-at="2016-08-19T03:34:39Z">
+    <test name="Default test" duration-ms="7534" started-at="2016-08-20T23:22:17Z" finished-at="2016-08-20T23:22:25Z">
       <class name="com.app.testGuru.first.SortWebElements">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="beforeTest" is-config="true" duration-ms="3929" started-at="2016-08-18T20:34:28Z" finished-at="2016-08-18T20:34:32Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="beforeTest" is-config="true" duration-ms="4408" started-at="2016-08-20T16:22:17Z" finished-at="2016-08-20T16:22:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="verifyMobileApp" duration-ms="103" started-at="2016-08-18T20:34:32Z" finished-at="2016-08-18T20:34:32Z">
+        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyMobileApp" duration-ms="103" started-at="2016-08-20T16:22:22Z" finished-at="2016-08-20T16:22:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMobileApp -->
-        <test-method status="PASS" signature="testMobilePage()[pri:1, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="testMobilePage" duration-ms="2251" started-at="2016-08-18T20:34:32Z" finished-at="2016-08-18T20:34:34Z">
+        <test-method status="PASS" signature="testMobilePage()[pri:1, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="testMobilePage" duration-ms="2650" started-at="2016-08-20T16:22:22Z" finished-at="2016-08-20T16:22:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMobilePage -->
-        <test-method status="PASS" signature="pageSortByName()[pri:2, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="pageSortByName" duration-ms="386" started-at="2016-08-18T20:34:34Z" finished-at="2016-08-18T20:34:35Z">
+        <test-method status="PASS" signature="pageSortByName()[pri:2, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="pageSortByName" duration-ms="359" started-at="2016-08-20T16:22:24Z" finished-at="2016-08-20T16:22:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pageSortByName -->
-        <test-method status="PASS" signature="registerUserLogin()[pri:7, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="registerUserLogin" duration-ms="1622" started-at="2016-08-18T20:34:35Z" finished-at="2016-08-18T20:34:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registerUserLogin -->
-        <test-method status="PASS" signature="verifyRegisteration()[pri:8, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="verifyRegisteration" duration-ms="15" started-at="2016-08-18T20:34:36Z" finished-at="2016-08-18T20:34:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisteration -->
-        <test-method status="PASS" signature="addToWishList()[pri:9, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="addToWishList" duration-ms="2413" started-at="2016-08-18T20:34:36Z" finished-at="2016-08-18T20:34:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addToWishList -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@5d5eef3d]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-18T20:34:39Z" finished-at="2016-08-18T20:34:39Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-20T16:22:25Z" finished-at="2016-08-20T16:22:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

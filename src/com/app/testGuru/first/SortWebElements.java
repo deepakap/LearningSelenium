@@ -1,5 +1,7 @@
 package com.app.testGuru.first;
 
+import java.awt.print.Pageable;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,15 +20,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
+import com.app.waitEvt.*;
 
 import com.app.baseLogic.*;
 
-public class SortWebElements {
+public class SortWebElements extends PageLoad {
    private WebDriver driver;
    private String url = "http://live.guru99.com/index.php/";
    private List <String> strList = new ArrayList<String>();
 
-	
    @BeforeTest
    public void beforeTest() {
 	 driver = new FirefoxDriver();
@@ -34,18 +36,18 @@ public class SortWebElements {
 	 driver.manage().window().maximize();
   }
 	
-  @Test(priority=0)
+  @Test(priority=0, enabled=true)
   public void verifyMobileApp() throws InterruptedException {
 	  Assert.assertEquals(driver.getTitle(), "Home page");
-	  WebDriverWait wait = new WebDriverWait(driver,50);
-	  wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.linkText("Privacy Policy".toUpperCase()))));
-   }
+	  WebElement ele = driver.findElement(By.linkText("Privacy Policy".toUpperCase()));
+	  waitExplicitDuration(driver, ele);
+  }
   
-  @Test(priority=1)
+  @Test(priority=1, enabled=true)
   public void testMobilePage(){
 	  driver.findElement(By.linkText("Mobile".toUpperCase())).click();
-	  WebDriverWait waitToLoad = new WebDriverWait(driver, 50);
-	  waitToLoad.until(ExpectedConditions.visibilityOf(driver.findElement(By.linkText("Privacy Policy".toUpperCase()))));
+	  WebElement ele = driver.findElement(By.linkText("Privacy Policy".toUpperCase()));
+	  waitExplicitDuration(driver, ele);
 	  Assert.assertEquals(driver.getTitle(), "Mobile");
 	  Select dropDown = new Select(driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div[1]/div/select")));
 	  dropDown.selectByVisibleText("Name");
@@ -53,11 +55,10 @@ public class SortWebElements {
   
   @Test(priority=2, enabled=true)
   public void pageSortByName(){
-	  WebDriverWait wait = new WebDriverWait(driver, 50);
-	  wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className("copyright"))));
+	  WebElement webEle = driver.findElement(By.className("copyright"));
 	  WebElement ele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul"));
+	  waitExplicitDuration(driver, webEle);
 	  List<WebElement> list = ele.findElements(By.tagName("a"));
-	  
 	  strList = new ArrayList<String>();
 	  for(WebElement elem : list){
 		  if(elem.getText()!="" && !elem.getText().isEmpty() && (!elem.getText().equalsIgnoreCase("Add to Wishlist") && !elem.getText().equalsIgnoreCase("Add to Compare")) ){
@@ -94,9 +95,8 @@ public class SortWebElements {
   @Test(priority=5, enabled = false)
   public void verifyCartItems(){
 	 driver.findElement(By.linkText("Mobile".toUpperCase())).click();
-	 WebDriverWait wait = new WebDriverWait(driver, 50);
-	 wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"))));
-	  
+	 WebElement wele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
+	 waitExplicitDuration(driver, wele);
 	 ArrayList<String> msgList = new ArrayList<String>();
 	 msgList.add("The product IPhone has been added to comparison list.");
 	 msgList.add("");
@@ -108,7 +108,6 @@ public class SortWebElements {
 	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
   
-  
   @Test(priority=6, enabled=false)
   public void verifyItemsOnCart(){
 	  String phone1= "IPHONE";
@@ -117,7 +116,7 @@ public class SortWebElements {
 	  WebElement spanEle = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[3]/div[2]/div[2]/div/button/span/span"));
 	  //actions.moveToElement(spanEle).perform();
 	  actions.moveToElement(spanEle).click(spanEle).build().perform();
-	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	  waitImplicitDuration(driver);
 	  Set<String> eleSet = driver.getWindowHandles();
 	  Iterator<String> itr = eleSet.iterator();
 	 
@@ -135,7 +134,6 @@ public class SortWebElements {
 	  driver.navigate().refresh();
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
-  
   
   @Test(priority=7, enabled=false)
   public void registerUserLogin(){
@@ -180,9 +178,8 @@ public class SortWebElements {
 	  String title = "My Wishlist";
 	  Assert.assertEquals(driver.getTitle().toString(), title);
 	  driver.findElement(By.xpath(".//*[@id='wishlist-view-form']/div/div/button[1]")).click();
-	  WebDriverWait wait = new WebDriverWait(driver, 5);
 	  WebElement shareBtn = driver.findElement(By.xpath(".//*[@id='form-validate']/div[2]/button"));
-	  wait.until(ExpectedConditions.visibilityOf(shareBtn));
+	  waitExplicitDuration(driver, shareBtn);
 	  driver.findElement(By.id("email_address")).sendKeys("nissan_new.altima@gmail.com");
 	  driver.findElement(By.id("message")).sendKeys("This is Test message from automation user");
 	  shareBtn.click();
@@ -195,7 +192,6 @@ public class SortWebElements {
   public void loginToAccount(){
 	  
   }
-  
   
   @AfterTest
   public void afterTest() {
