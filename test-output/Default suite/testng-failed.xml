@@ -6,9 +6,8 @@
       <class name="com.app.testGuru.first.SortWebElements">
         <methods>
           <include name="afterTest"/>
-          <include name="addToWishList"/>
           <include name="beforeTest"/>
-          <include name="verifyRegisteration"/>
+          <include name="performItemCheckout"/>
         </methods>
       </class> <!-- com.app.testGuru.first.SortWebElements -->
     </classes>

@@ -1,7 +1,6 @@
 package com.app.testGuru.first;
 
 import java.awt.print.Pageable;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,6 +8,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -20,8 +20,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
-import com.app.waitEvt.*;
 
+import com.app.waitEvt.*;
 import com.app.baseLogic.*;
 
 public class SortWebElements extends PageLoad {
@@ -69,7 +69,7 @@ public class SortWebElements extends PageLoad {
 	  Assert.assertTrue(flag, "Listed Items are sorted by Name !");
   }
   
-  @Test(priority=3, enabled=false)
+  @Test(priority=3, enabled=true)
   public void verifyItemPrice(){
 	  WebElement webItem = driver.findElement(By.xpath(".//*[@id='product-price-1']/span"));
 	  String itemPrice  = webItem.getText();
@@ -79,7 +79,7 @@ public class SortWebElements extends PageLoad {
 	  //driver.navigate().back();
   }
   
-  @Test(priority=4, enabled=false)
+  @Test(priority=4, enabled=true)
   public void verifyAddCartItems(){
 	  String actualStr = "You have no items in your shopping cart.";
 	  driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
@@ -92,7 +92,7 @@ public class SortWebElements extends PageLoad {
       Assert.assertEquals(actualStr, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div[2]/p[1]")).getText().toString());
   }
   
-  @Test(priority=5, enabled = false)
+  @Test(priority=5, enabled = true)
   public void verifyCartItems(){
 	 driver.findElement(By.linkText("Mobile".toUpperCase())).click();
 	 WebElement wele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
@@ -108,7 +108,7 @@ public class SortWebElements extends PageLoad {
 	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
   
-  @Test(priority=6, enabled=false)
+  @Test(priority=6, enabled=true)
   public void verifyItemsOnCart(){
 	  String phone1= "IPHONE";
 	  String phone2= "SONY XPERIA";
@@ -135,7 +135,7 @@ public class SortWebElements extends PageLoad {
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
   
-  @Test(priority=7, enabled=false)
+  @Test(priority=7, enabled=true)
   public void registerUserLogin(){
 	  String link = "REGISTER";
 	  driver.findElement(By.xpath(".//*[@id='header']/div/div[2]/div/a/span[2]")).click();
@@ -154,9 +154,9 @@ public class SortWebElements extends PageLoad {
 	  String expString = "CREATE NEW CUSTOMER ACCOUNT";
 	  Assert.assertEquals(title.toUpperCase(),expString);
 	  
-	  driver.findElement(By.id("firstname")).sendKeys("Nissan");
-	  driver.findElement(By.id("lastname")).sendKeys("altima");
-	  driver.findElement(By.id("email_address")).sendKeys("nissan_Xnew.altimaX@gmail.com");
+	  driver.findElement(By.id("firstname")).sendKeys("Niss5ss");
+	  driver.findElement(By.id("lastname")).sendKeys("altimak");
+	  driver.findElement(By.id("email_address")).sendKeys("niss5ss.altimaX@gmail.com");
 	  driver.findElement(By.id("password")).sendKeys("welcome");
 	  driver.findElement(By.id("confirmation")).sendKeys("welcome");
 	  driver.findElement(By.id("is_subscribed")).click();
@@ -164,13 +164,13 @@ public class SortWebElements extends PageLoad {
 	  
   }
   
-  @Test(priority=8, enabled=false)
+  @Test(priority=8, enabled=true)
   public void verifyRegisteration(){
 	  String regTxt = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div/div/ul/li/ul/li/span")).getText();
       Assert.assertEquals(regTxt, "Thank you for registering with Main Website Store.");
   }
   
-  @Test(priority=9, enabled=false)
+  @Test(priority=9, enabled=true)
   public void addToWishList(){
 	  driver.findElement(By.linkText("TV")).click();
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -188,10 +188,42 @@ public class SortWebElements extends PageLoad {
 	  Assert.assertEquals(shareEle.getText(), shareTxt);
   }
   
-  @Test(priority=10, enabled=false)
-  public void loginToAccount(){
-	  
-  }
+  @Test(priority=10, enabled=true)
+  public void performItemCheckout(){
+	  driver.findElement(By.cssSelector("button.btn-cart")).click();
+	  driver.findElement(By.cssSelector("button.btn-proceed-checkout")).click();
+	  Assert.assertEquals(driver.getTitle(), "Checkout");
+	  driver.findElement(By.id("billing:street1")).sendKeys("350 Santa Clara");
+	  driver.findElement(By.id("billing:city")).sendKeys("Sunnyvale");
+	  Select dropDown = new Select(driver.findElement(By.id("billing:region_id")));
+	  dropDown.selectByVisibleText("California");
+	  driver.findElement(By.id("billing:postcode")).sendKeys("94087");
+	  driver.findElement(By.id("billing:telephone")).sendKeys("4082341654");
+	  driver.findElement(By.id("billing:use_for_shipping_yes")).click();
+	  waitImplicitDuration(driver);
+	  driver.findElement(By.cssSelector("button.button[title='Continue']")).click();
+	  waitImplicitDuration(driver);  
+	  driver.findElement(By.cssSelector("button.validation-passed")).click();
+	  driver.findElement(By.xpath(".//*[@id='shipping-method-buttons-container']/button")).submit();
+	  waitImplicitDuration(driver);
+	  //WebElement radioEle = driver.findElement(By.cssSelector("input#p_method_checkmo"));
+      //waitExplicitDuration(driver, radioEle);
+      //radioEle.click();
+      driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[1]/ol/li[3]/div[2]/form/div[3]/button")).click();
+      waitImplicitDuration(driver);
+      WebElement elm = driver.findElement(By.id("p_method_checkmo"));
+      waitExplicitDuration(driver, elm);
+      elm.click();
+      driver.findElement(By.xpath(".//*[@id='payment-buttons-container']/button")).click();
+      WebElement btn = driver.findElement(By.cssSelector("button.btn-checkout"));
+      waitExplicitDuration(driver, btn);
+      btn.click();
+      //driver.findElement(By.cssSelector("button.validation-passed")).click();
+      //driver.findElement(By.cssSelector("button.btn-checkout")).submit();
+      WebElement eleText = driver.findElement(By.cssSelector("h2.sub-title"));
+      waitExplicitDuration(driver, eleText);
+      Assert.assertEquals(eleText.getText(), "Thank you for your purchase!".toUpperCase());
+   }
   
   @AfterTest
   public void afterTest() {
