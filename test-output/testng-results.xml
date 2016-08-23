@@ -1,65 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="11" passed="11">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22483" started-at="2016-08-22T05:48:33Z" finished-at="2016-08-22T05:48:55Z">
+  <suite name="Default suite" duration-ms="4884" started-at="2016-08-23T06:12:46Z" finished-at="2016-08-23T06:12:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22483" started-at="2016-08-22T05:48:33Z" finished-at="2016-08-22T05:48:55Z">
-      <class name="com.app.testGuru.first.SortWebElements">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="beforeTest" is-config="true" duration-ms="3868" started-at="2016-08-21T22:48:33Z" finished-at="2016-08-21T22:48:37Z">
+    <test name="Default test" duration-ms="4884" started-at="2016-08-23T06:12:46Z" finished-at="2016-08-23T06:12:51Z">
+      <class name="com.app.testGuru.first.WebPageAutomation">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="beforeTest" is-config="true" duration-ms="4089" started-at="2016-08-22T23:12:46Z" finished-at="2016-08-22T23:12:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyMobileApp" duration-ms="98" started-at="2016-08-21T22:48:37Z" finished-at="2016-08-21T22:48:37Z">
+        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="verifyMobileApp" duration-ms="710" started-at="2016-08-22T23:12:50Z" finished-at="2016-08-22T23:12:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMobileApp -->
-        <test-method status="PASS" signature="testMobilePage()[pri:1, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="testMobilePage" duration-ms="1835" started-at="2016-08-21T22:48:37Z" finished-at="2016-08-21T22:48:39Z">
+        <test-method status="PASS" signature="destroyEnvironnment()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="destroyEnvironnment" is-config="true" duration-ms="75" started-at="2016-08-22T23:12:51Z" finished-at="2016-08-22T23:12:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMobilePage -->
-        <test-method status="PASS" signature="pageSortByName()[pri:2, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="pageSortByName" duration-ms="369" started-at="2016-08-21T22:48:39Z" finished-at="2016-08-21T22:48:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- pageSortByName -->
-        <test-method status="PASS" signature="verifyItemPrice()[pri:3, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyItemPrice" duration-ms="1064" started-at="2016-08-21T22:48:39Z" finished-at="2016-08-21T22:48:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyItemPrice -->
-        <test-method status="PASS" signature="verifyAddCartItems()[pri:4, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyAddCartItems" duration-ms="1839" started-at="2016-08-21T22:48:40Z" finished-at="2016-08-21T22:48:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAddCartItems -->
-        <test-method status="PASS" signature="verifyCartItems()[pri:5, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyCartItems" duration-ms="1539" started-at="2016-08-21T22:48:42Z" finished-at="2016-08-21T22:48:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCartItems -->
-        <test-method status="PASS" signature="verifyItemsOnCart()[pri:6, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyItemsOnCart" duration-ms="2883" started-at="2016-08-21T22:48:43Z" finished-at="2016-08-21T22:48:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyItemsOnCart -->
-        <test-method status="PASS" signature="registerUserLogin()[pri:7, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="registerUserLogin" duration-ms="1416" started-at="2016-08-21T22:48:46Z" finished-at="2016-08-21T22:48:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registerUserLogin -->
-        <test-method status="PASS" signature="verifyRegisteration()[pri:8, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="verifyRegisteration" duration-ms="13" started-at="2016-08-21T22:48:48Z" finished-at="2016-08-21T22:48:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyRegisteration -->
-        <test-method status="PASS" signature="addToWishList()[pri:9, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="addToWishList" duration-ms="2325" started-at="2016-08-21T22:48:48Z" finished-at="2016-08-21T22:48:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addToWishList -->
-        <test-method status="PASS" signature="performItemCheckout()[pri:10, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="performItemCheckout" duration-ms="5212" started-at="2016-08-21T22:48:50Z" finished-at="2016-08-21T22:48:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- performItemCheckout -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.app.testGuru.first.SortWebElements@643b1d11]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-21T22:48:55Z" finished-at="2016-08-21T22:48:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- com.app.testGuru.first.SortWebElements -->
+        </test-method> <!-- destroyEnvironnment -->
+      </class> <!-- com.app.testGuru.first.WebPageAutomation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

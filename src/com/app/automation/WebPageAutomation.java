@@ -1,6 +1,5 @@
-package com.app.testGuru.first;
+package com.app.automation;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,42 +7,44 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-import com.app.waitEvt.*;
-import com.app.baseLogic.*;
+import com.app.Init.driver.DefineEnvironment;
+import com.app.baseLogic.SortLogic;
+import com.app.page.models.HomePage;
 
-public class SortWebElements extends PageLoad {
+public class WebPageAutomation extends DefineEnvironment {
    private WebDriver driver;
    private String url = "http://live.guru99.com/index.php/";
    private List <String> strList = new ArrayList<String>();
-
+   private HomePage homePge;
+   
    @BeforeTest
    public void beforeTest() {
-	 driver = new FirefoxDriver();
+	 driver = new DefineEnvironment().setEnvironment("Firefox");
 	 driver.get(url);
 	 driver.manage().window().maximize();
   }
 	
   @Test(priority=0, enabled=true)
   public void verifyMobileApp() throws InterruptedException {
-	  Assert.assertEquals(driver.getTitle(), "Home page");
-	  WebElement ele = driver.findElement(By.linkText("Privacy Policy".toUpperCase()));
+	  homePge = new HomePage(driver);
+	  homePge.loadWebPage(url);
+	  homePge.maximizeWebPage();
+	  homePge.verifyTitle("Home page");
+	  WebElement ele = homePge.findLinkWebElement();
 	  waitExplicitDuration(driver, ele);
   }
   
-  @Test(priority=1, enabled=true)
+  @Test(priority=1, enabled=false)
   public void testMobilePage(){
 	  driver.findElement(By.linkText("Mobile".toUpperCase())).click();
 	  WebElement ele = driver.findElement(By.linkText("Privacy Policy".toUpperCase()));
@@ -53,7 +54,7 @@ public class SortWebElements extends PageLoad {
 	  dropDown.selectByVisibleText("Name");
   }
   
-  @Test(priority=2, enabled=true)
+  @Test(priority=2, enabled=false)
   public void pageSortByName(){
 	  WebElement webEle = driver.findElement(By.className("copyright"));
 	  WebElement ele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul"));
@@ -69,7 +70,7 @@ public class SortWebElements extends PageLoad {
 	  Assert.assertTrue(flag, "Listed Items are sorted by Name !");
   }
   
-  @Test(priority=3, enabled=true)
+  @Test(priority=3, enabled=false)
   public void verifyItemPrice(){
 	  WebElement webItem = driver.findElement(By.xpath(".//*[@id='product-price-1']/span"));
 	  String itemPrice  = webItem.getText();
@@ -79,7 +80,7 @@ public class SortWebElements extends PageLoad {
 	  //driver.navigate().back();
   }
   
-  @Test(priority=4, enabled=true)
+  @Test(priority=4, enabled=false)
   public void verifyAddCartItems(){
 	  String actualStr = "You have no items in your shopping cart.";
 	  driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
@@ -92,7 +93,7 @@ public class SortWebElements extends PageLoad {
       Assert.assertEquals(actualStr, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div[2]/p[1]")).getText().toString());
   }
   
-  @Test(priority=5, enabled = true)
+  @Test(priority=5, enabled=false)
   public void verifyCartItems(){
 	 driver.findElement(By.linkText("Mobile".toUpperCase())).click();
 	 WebElement wele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
@@ -108,7 +109,7 @@ public class SortWebElements extends PageLoad {
 	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
   
-  @Test(priority=6, enabled=true)
+  @Test(priority=6, enabled=false)
   public void verifyItemsOnCart(){
 	  String phone1= "IPHONE";
 	  String phone2= "SONY XPERIA";
@@ -135,7 +136,7 @@ public class SortWebElements extends PageLoad {
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
   
-  @Test(priority=7, enabled=true)
+  @Test(priority=7, enabled=false)
   public void registerUserLogin(){
 	  String link = "REGISTER";
 	  driver.findElement(By.xpath(".//*[@id='header']/div/div[2]/div/a/span[2]")).click();
@@ -164,13 +165,13 @@ public class SortWebElements extends PageLoad {
 	  
   }
   
-  @Test(priority=8, enabled=true)
+  @Test(priority=8, enabled=false)
   public void verifyRegisteration(){
 	  String regTxt = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div/div/ul/li/ul/li/span")).getText();
       Assert.assertEquals(regTxt, "Thank you for registering with Main Website Store.");
   }
   
-  @Test(priority=9, enabled=true)
+  @Test(priority=9, enabled=false)
   public void addToWishList(){
 	  driver.findElement(By.linkText("TV")).click();
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -188,7 +189,7 @@ public class SortWebElements extends PageLoad {
 	  Assert.assertEquals(shareEle.getText(), shareTxt);
   }
   
-  @Test(priority=10, enabled=true)
+  @Test(priority=10, enabled=false)
   public void performItemCheckout(){
 	  driver.findElement(By.cssSelector("button.btn-cart")).click();
 	  driver.findElement(By.cssSelector("button.btn-proceed-checkout")).click();
@@ -226,7 +227,8 @@ public class SortWebElements extends PageLoad {
    }
   
   @AfterTest
-  public void afterTest() {
-  }
+	public void destroyEnvironnment(){
+		driver.quit();
+	}
 
 }
