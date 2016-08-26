@@ -2,7 +2,7 @@ package com.app.factory;
 
 import org.openqa.selenium.WebElement;
 
-public abstract class BaseFactory {
+public abstract class ExtractWebElements {
 	
 	public abstract WebElement findByID();
 	

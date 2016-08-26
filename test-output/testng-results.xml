@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="4884" started-at="2016-08-23T06:12:46Z" finished-at="2016-08-23T06:12:51Z">
+  <suite name="Default suite" duration-ms="7137" started-at="2016-08-23T15:34:33Z" finished-at="2016-08-23T15:34:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="4884" started-at="2016-08-23T06:12:46Z" finished-at="2016-08-23T06:12:51Z">
-      <class name="com.app.testGuru.first.WebPageAutomation">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="beforeTest" is-config="true" duration-ms="4089" started-at="2016-08-22T23:12:46Z" finished-at="2016-08-22T23:12:50Z">
+    <test name="Default test" duration-ms="7137" started-at="2016-08-23T15:34:33Z" finished-at="2016-08-23T15:34:40Z">
+      <class name="com.app.automation.WebPageAutomation">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.app.automation.WebPageAutomation@643b1d11]" name="beforeTest" is-config="true" duration-ms="4255" started-at="2016-08-23T08:34:33Z" finished-at="2016-08-23T08:34:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="verifyMobileApp" duration-ms="710" started-at="2016-08-22T23:12:50Z" finished-at="2016-08-22T23:12:51Z">
+        <test-method status="PASS" signature="verifyMobileApp()[pri:0, instance:com.app.automation.WebPageAutomation@643b1d11]" name="verifyMobileApp" duration-ms="2375" started-at="2016-08-23T08:34:37Z" finished-at="2016-08-23T08:34:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyMobileApp -->
-        <test-method status="PASS" signature="destroyEnvironnment()[pri:0, instance:com.app.testGuru.first.WebPageAutomation@643b1d11]" name="destroyEnvironnment" is-config="true" duration-ms="75" started-at="2016-08-22T23:12:51Z" finished-at="2016-08-22T23:12:51Z">
+        <test-method status="PASS" signature="testMobilePage()[pri:1, instance:com.app.automation.WebPageAutomation@643b1d11]" name="testMobilePage" duration-ms="404" started-at="2016-08-23T08:34:40Z" finished-at="2016-08-23T08:34:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMobilePage -->
+        <test-method status="PASS" signature="destroyEnvironnment()[pri:0, instance:com.app.automation.WebPageAutomation@643b1d11]" name="destroyEnvironnment" is-config="true" duration-ms="88" started-at="2016-08-23T08:34:40Z" finished-at="2016-08-23T08:34:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- destroyEnvironnment -->
-      </class> <!-- com.app.testGuru.first.WebPageAutomation -->
+      </class> <!-- com.app.automation.WebPageAutomation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

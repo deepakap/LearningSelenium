@@ -20,12 +20,15 @@ import org.testng.annotations.Test;
 import com.app.Init.driver.DefineEnvironment;
 import com.app.baseLogic.SortLogic;
 import com.app.page.models.HomePage;
+import com.app.page.models.MobilePage;
 
 public class WebPageAutomation extends DefineEnvironment {
    private WebDriver driver;
    private String url = "http://live.guru99.com/index.php/";
    private List <String> strList = new ArrayList<String>();
    private HomePage homePge;
+   private MobilePage mobilePage;
+   
    
    @BeforeTest
    public void beforeTest() {
@@ -35,24 +38,23 @@ public class WebPageAutomation extends DefineEnvironment {
   }
 	
   @Test(priority=0, enabled=true)
-  public void verifyMobileApp() throws InterruptedException {
+  public void launchWebApp() throws InterruptedException {
 	  homePge = new HomePage(driver);
 	  homePge.loadWebPage(url);
 	  homePge.maximizeWebPage();
 	  homePge.verifyTitle("Home page");
-	  WebElement ele = homePge.findLinkWebElement();
+	  WebElement ele = homePge.findAddressTag();
 	  waitExplicitDuration(driver, ele);
+	  homePge.veifyAddress();
+	  mobilePage = homePge.clickOnMobileLink(driver);
+	  waitImplicitDuration(driver);
   }
   
-  @Test(priority=1, enabled=false)
+  @Test(priority=1, enabled=true)
   public void testMobilePage(){
-	  driver.findElement(By.linkText("Mobile".toUpperCase())).click();
-	  WebElement ele = driver.findElement(By.linkText("Privacy Policy".toUpperCase()));
-	  waitExplicitDuration(driver, ele);
-	  Assert.assertEquals(driver.getTitle(), "Mobile");
-	  Select dropDown = new Select(driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div[1]/div/select")));
-	  dropDown.selectByVisibleText("Name");
-  }
+	  mobilePage.verifyTitle("Mobile");
+	  mobilePage.sortItemsByName();
+	 }
   
   @Test(priority=2, enabled=false)
   public void pageSortByName(){
