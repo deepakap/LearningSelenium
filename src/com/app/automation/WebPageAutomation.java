@@ -77,6 +77,7 @@ public class WebPageAutomation extends DefineEnvironment {
 	  waitExplicitDuration(driver, shpCart.quantityTextField());
 	  shpCart.updateItemQuantity();
 	  shpCart.submitUpdateAndVerify();
+	  shpCart.emptyCart().verifyEmptyCartMsg();
 	  //String actualStr = "You have no items in your shopping cart.";
 	  //driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
 	  //driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/input")).sendKeys("1000");

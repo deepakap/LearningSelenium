@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -34,5 +35,10 @@ public class PageUtils {
 	public void takeScreenShot(WebDriver driver) throws IOException{
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		org.apache.commons.io.FileUtils.copyFile(scrFile, new File("/Users/deepakkumar/Projects/Selenium/NgLearning/src/screenshots/screen.jpg"));
+	}
+	
+	public void waitForPageLoad(WebDriver driver, String locator, String value){
+		wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.textToBe(By.tagName(locator), value));
 	}
 }
