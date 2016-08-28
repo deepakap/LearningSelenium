@@ -6,7 +6,7 @@ Features automated are listed under testRequirements folder
 
 Implementing Page Object Factory pattern for automation test cases
 
-Need to implement with Jenkins integration Tool
+Need to implement with Jenkins
 
 
 
