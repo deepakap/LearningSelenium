@@ -1,7 +1,12 @@
-Sample experiments using selenium WebDriver (Firefox Driver) 
-Automated on live.guru99.com e-shopping demo website 
+WebPage automation on OSX platform using Java, selenium WebDriver(Firefox Driver) and TestNg 
+
+Target automation on live.guru99.com e-shopping demo website 
 
 Features automated are listed under testRequirements folder 
 
-Need to implement Page Object Factory pattern for automation test cases 
+Implementing Page Object Factory pattern for automation test cases
+
+Need to implement with Jenkins integration Tool
+
+
 
