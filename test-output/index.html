@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +102,27 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="compareItemPrice">compareItemPrice</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="launchWebApp">launchWebApp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="testMobilePage">testMobilePage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="verifyMobileApp">verifyMobileApp</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="verifyAddCartItems">verifyAddCartItems</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.app.automation.WebPageAutomation" hash-for-method="verifyItemSortByName">verifyItemSortByName</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -130,6 +145,20 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="compareItemPrice">
+                  </a> <!-- compareItemPrice -->
+                  <span class="method-name">compareItemPrice</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="launchWebApp">
+                  </a> <!-- launchWebApp -->
+                  <span class="method-name">launchWebApp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="testMobilePage">
                   </a> <!-- testMobilePage -->
                   <span class="method-name">testMobilePage</span>
@@ -137,9 +166,16 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyMobileApp">
-                  </a> <!-- verifyMobileApp -->
-                  <span class="method-name">verifyMobileApp</span>
+                  <a name="verifyAddCartItems">
+                  </a> <!-- verifyAddCartItems -->
+                  <span class="method-name">verifyAddCartItems</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyItemSortByName">
+                  </a> <!-- verifyItemSortByName -->
+                  <span class="method-name">verifyItemSortByName</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -147,7 +183,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/rc/25__0drn0x51zf30_p9w7v140000gn/T/testng-eclipse-738767718/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/rc/25__0drn0x51zf30_p9w7v140000gn/T/testng-eclipse--1663270290/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -196,20 +232,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyMobileApp')
+data.setCell(0, 1, 'launchWebApp')
 data.setCell(0, 2, 'com.app.automation.WebPageAutomation')
-data.setCell(0, 3, 2375);
+data.setCell(0, 3, 1603);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testMobilePage')
+data.setCell(1, 1, 'verifyAddCartItems')
 data.setCell(1, 2, 'com.app.automation.WebPageAutomation')
-data.setCell(1, 3, 404);
+data.setCell(1, 3, 1400);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'compareItemPrice')
+data.setCell(2, 2, 'com.app.automation.WebPageAutomation')
+data.setCell(2, 3, 885);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testMobilePage')
+data.setCell(3, 2, 'com.app.automation.WebPageAutomation')
+data.setCell(3, 3, 430);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'verifyItemSortByName')
+data.setCell(4, 2, 'com.app.automation.WebPageAutomation')
+data.setCell(4, 3, 385);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -224,7 +272,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">9 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -232,21 +280,15 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">performItemCheckout</span>
                 <br/>
-                <span class="ignored-method-name">verifyAddCartItems</span>
-                <br/>
                 <span class="ignored-method-name">verifyItemsOnCart</span>
                 <br/>
                 <span class="ignored-method-name">verifyCartItems</span>
                 <br/>
                 <span class="ignored-method-name">verifyRegisteration</span>
                 <br/>
-                <span class="ignored-method-name">pageSortByName</span>
-                <br/>
                 <span class="ignored-method-name">addToWishList</span>
                 <br/>
                 <span class="ignored-method-name">registerUserLogin</span>
-                <br/>
-                <span class="ignored-method-name">verifyItemPrice</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -264,16 +306,28 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">verifyMobileApp</span>
-                <span class="method-start">4265 ms</span>
+                <span class="method-name">launchWebApp</span>
+                <span class="method-start">4082 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testMobilePage</span>
-                <span class="method-start">6642 ms</span>
+                <span class="method-start">5687 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyItemSortByName</span>
+                <span class="method-start">6118 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">compareItemPrice</span>
+                <span class="method-start">6504 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAddCartItems</span>
+                <span class="method-start">7390 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">destroyEnvironnment</span>
-                <span class="method-start">7047 ms</span>
+                <span class="method-start">8791 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

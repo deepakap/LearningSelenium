@@ -20,14 +20,17 @@ import org.testng.annotations.Test;
 import com.app.Init.driver.DefineEnvironment;
 import com.app.baseLogic.SortLogic;
 import com.app.page.models.HomePage;
+import com.app.page.models.MobileFeature;
 import com.app.page.models.MobilePage;
+import com.app.page.models.ShoppingCart;
 
 public class WebPageAutomation extends DefineEnvironment {
    private WebDriver driver;
    private String url = "http://live.guru99.com/index.php/";
-   private List <String> strList = new ArrayList<String>();
    private HomePage homePge;
    private MobilePage mobilePage;
+   private MobileFeature mblFeature;
+   private ShoppingCart shpCart;
    
    
    @BeforeTest
@@ -40,8 +43,7 @@ public class WebPageAutomation extends DefineEnvironment {
   @Test(priority=0, enabled=true)
   public void launchWebApp() throws InterruptedException {
 	  homePge = new HomePage(driver);
-	  homePge.loadWebPage(url);
-	  homePge.maximizeWebPage();
+	  homePge.loadWebPageToMaximise(url);
 	  homePge.verifyTitle("Home page");
 	  WebElement ele = homePge.findAddressTag();
 	  waitExplicitDuration(driver, ele);
@@ -54,45 +56,36 @@ public class WebPageAutomation extends DefineEnvironment {
   public void testMobilePage(){
 	  mobilePage.verifyTitle("Mobile");
 	  mobilePage.sortItemsByName();
-	 }
+  }
   
-  @Test(priority=2, enabled=false)
-  public void pageSortByName(){
+  @Test(priority=2, enabled=true)
+  public void verifyItemSortByName(){
 	  WebElement webEle = driver.findElement(By.className("copyright"));
-	  WebElement ele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul"));
 	  waitExplicitDuration(driver, webEle);
-	  List<WebElement> list = ele.findElements(By.tagName("a"));
-	  strList = new ArrayList<String>();
-	  for(WebElement elem : list){
-		  if(elem.getText()!="" && !elem.getText().isEmpty() && (!elem.getText().equalsIgnoreCase("Add to Wishlist") && !elem.getText().equalsIgnoreCase("Add to Compare")) ){
-			  strList.add(elem.getText());
-		  }
-	  }
-	  Boolean flag = new SortLogic().verifyItemsSortOrder((ArrayList<String>) strList);
-	  Assert.assertTrue(flag, "Listed Items are sorted by Name !");
+	  mobilePage.verifyItemsDisplayedByName();
+	  mobilePage.verifyTitle("Mobile");
   }
   
-  @Test(priority=3, enabled=false)
-  public void verifyItemPrice(){
-	  WebElement webItem = driver.findElement(By.xpath(".//*[@id='product-price-1']/span"));
-	  String itemPrice  = webItem.getText();
-	  System.out.println( " item price :"+itemPrice);
-	  driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/h2/a")).click();
-	  Assert.assertEquals(itemPrice, driver.findElement(By.className("price")).getText());	
-	  //driver.navigate().back();
+  @Test(priority=3, enabled=true)
+  public void compareItemPrice(){
+	  mblFeature = mobilePage.checkSonyExperiaPrice();
   }
   
-  @Test(priority=4, enabled=false)
+  @Test(priority=4, enabled=true)
   public void verifyAddCartItems(){
-	  String actualStr = "You have no items in your shopping cart.";
-	  driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
-	  driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/input")).sendKeys("1000");
-      driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/button")).submit();
-	  String actual = "Some of the products cannot be ordered in requested quantity.";
-      Assert.assertEquals(actual, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div/ul/li/ul/li/span")).getText());
+	  shpCart = mblFeature.clickOnAddToCart();
+	  waitExplicitDuration(driver, shpCart.quantityTextField());
+	  shpCart.updateItemQuantity();
+	  shpCart.submitUpdateAndVerify();
+	  //String actualStr = "You have no items in your shopping cart.";
+	  //driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
+	  //driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/input")).sendKeys("1000");
+      //driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/button")).submit();
+	  //String actual = "Some of the products cannot be ordered in requested quantity.";
+      //Assert.assertEquals(actual, driver.findElement().getText());
       //Assert.assertEquals("", driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[2]/p")).getText().toString());
-      driver.findElement(By.id("empty_cart_button")).click();
-      Assert.assertEquals(actualStr, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div[2]/p[1]")).getText().toString());
+      //driver.findElement(By.id("empty_cart_button")).click();
+      //Assert.assertEquals(actualStr, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div[2]/p[1]")).getText().toString());
   }
   
   @Test(priority=5, enabled=false)

@@ -34,13 +34,11 @@ public class HomePage extends AccessBaseWebElements {
 		return link;
 	}
 	
-	public void loadWebPage(String urlStr){
+	public void loadWebPageToMaximise(String urlStr){
 		driver.get(urlStr);
-	}
-	
-	public void maximizeWebPage(){
 		driver.manage().window().maximize();
 	}
+	
 	
 	public WebElement findAddressTag(){
 		return address;
