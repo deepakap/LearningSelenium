@@ -42,6 +42,9 @@ public class ShoppingCart extends PageUtils {
 	@FindBy(tagName="h1")
 	WebElement cartEmptyEle;
 	
+	@FindBy(linkText="MOBILE")
+	WebElement mobileLnk;
+	
 	public ShoppingCart(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -55,7 +58,6 @@ public class ShoppingCart extends PageUtils {
 		updateBtn.submit();
 		Assert.assertEquals(spanTxt.getText(), UPDATE_MSG);
 		Assert.assertEquals(errorMsgElement.getText(), SHOPPIN_CART_ERROR_MSG);
-		
 	}
 	
 	public WebElement quantityTextField(){
@@ -64,11 +66,17 @@ public class ShoppingCart extends PageUtils {
 		
 	public ShoppingCart emptyCart(){
 		emptyCrtBtn.click();
-		//waitForPageLoad(driver, "h1", CART_EMPTY_MSG);
 		return new ShoppingCart(driver);
 	}
 	
 	public void verifyEmptyCartMsg(){
 		Assert.assertEquals(cartEmptyEle.getText(), CART_EMPTY_MSG);
 	}
+	
+	public MobilePage clickOnMobileLink(){
+		mobileLnk.click();
+		return new MobilePage(driver);
+	}
+	
+	
 }

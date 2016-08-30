@@ -11,10 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.app.Init.driver.DefineEnvironment;
 import com.app.baseLogic.SortLogic;
+import com.app.manager.WebDrivermanager;
 
-public class MobilePage extends DefineEnvironment {
+public class MobilePage extends WebDrivermanager {
 	
 	private WebDriver driver;
 	
@@ -32,6 +32,15 @@ public class MobilePage extends DefineEnvironment {
 	
 	@FindBy(xpath=".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/h2/a")
 	WebElement sonyMobileFeature;
+	
+	@FindBy(xpath=".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a")
+	WebElement iPhoneCompareLink;
+	
+	@FindBy(xpath=".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[1]/div/div[3]/ul/li[2]/a")
+	WebElement sonyCompareLink;
+	
+	@FindBy(css="button.button[title='Compare']")
+	WebElement compareBtn;
 	
 	private List <String> strList = new ArrayList<String>();
 	
@@ -73,6 +82,18 @@ public class MobilePage extends DefineEnvironment {
 		return features;
 	}
 	
+	public MobilePage addToComareIphone(){
+		iPhoneCompareLink.click();
+		return new MobilePage(driver);
+	}
 	
+	public MobilePage addToCompareSony(){
+		sonyCompareLink.click();
+		return new MobilePage(driver);
+	}
+	
+	public void clickCompareBtn(){
+		compareBtn.click();
+	}
 	
 }

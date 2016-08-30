@@ -1,4 +1,4 @@
-package com.app.Init.driver;
+package com.app.manager;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -8,12 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-public class DefineEnvironment {
+import com.app.eventsLogger.EventHandler;
+
+public class WebDrivermanager {
 	
 	private WebDriver driver;
 	private WebDriverWait wait;
@@ -25,6 +28,10 @@ public class DefineEnvironment {
 			driver = new InternetExplorerDriver();
 		}else if(browserName.endsWith("Firefox")){
 			driver =  new FirefoxDriver();
+			 EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
+			 EventHandler handler = new EventHandler();
+			 eventDriver.register(handler);
+			 return eventDriver;
 		}else if(browserName.equalsIgnoreCase("Chrome")){
 			driver = new ChromeDriver();
 		}

@@ -5,6 +5,7 @@
     <classes>
       <class name="com.app.automation.WebPageAutomation">
         <methods>
+          <include name="compareItemPrice"/>
           <include name="verifyAddCartItems"/>
           <include name="beforeTest"/>
           <include name="destroyEnvironnment"/>

@@ -17,14 +17,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.app.Init.driver.DefineEnvironment;
 import com.app.baseLogic.SortLogic;
+import com.app.manager.WebDrivermanager;
 import com.app.page.models.HomePage;
 import com.app.page.models.MobileFeature;
 import com.app.page.models.MobilePage;
 import com.app.page.models.ShoppingCart;
 
-public class WebPageAutomation extends DefineEnvironment {
+public class WebPageAutomation extends WebDrivermanager {
    private WebDriver driver;
    private String url = "http://live.guru99.com/index.php/";
    private HomePage homePge;
@@ -35,7 +35,7 @@ public class WebPageAutomation extends DefineEnvironment {
    
    @BeforeTest
    public void beforeTest() {
-	 driver = new DefineEnvironment().setEnvironment("Firefox");
+	 driver = new WebDrivermanager().setEnvironment("Firefox");
 	 driver.get(url);
 	 driver.manage().window().maximize();
   }
@@ -78,31 +78,27 @@ public class WebPageAutomation extends DefineEnvironment {
 	  shpCart.updateItemQuantity();
 	  shpCart.submitUpdateAndVerify();
 	  shpCart.emptyCart().verifyEmptyCartMsg();
-	  //String actualStr = "You have no items in your shopping cart.";
-	  //driver.findElement(By.xpath(".//*[@id='product_addtocart_form']/div[4]/div/div/div[2]/button")).submit();
-	  //driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/input")).sendKeys("1000");
-      //driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[4]/button")).submit();
-	  //String actual = "Some of the products cannot be ordered in requested quantity.";
-      //Assert.assertEquals(actual, driver.findElement().getText());
-      //Assert.assertEquals("", driver.findElement(By.xpath(".//*[@id='shopping-cart-table']/tbody/tr/td[2]/p")).getText().toString());
-      //driver.findElement(By.id("empty_cart_button")).click();
-      //Assert.assertEquals(actualStr, driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div/div[2]/p[1]")).getText().toString());
-  }
+	  mobilePage = shpCart.clickOnMobileLink();
+	}
   
-  @Test(priority=5, enabled=false)
+  @Test(priority=5, enabled=true)
   public void verifyCartItems(){
-	 driver.findElement(By.linkText("Mobile".toUpperCase())).click();
-	 WebElement wele = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a"));
-	 waitExplicitDuration(driver, wele);
-	 ArrayList<String> msgList = new ArrayList<String>();
-	 msgList.add("The product IPhone has been added to comparison list.");
-	 msgList.add("");
-	 msgList.add("The product Sony Xperia has been added to comparison list.");
-	 driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[1]/div/div[3]/ul/li[2]/a")).click();
-	 String strTxt = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/ul/li/ul/li/span")).getText().trim();
-	 Assert.assertEquals(msgList.get(0).toString(), strTxt);
-	 driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a")).click();	
-	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	  mobilePage.addToComareIphone().addToCompareSony().clickCompareBtn();
+	  
+	  /*
+	  //driver.findElement(By.linkText("Mobile".toUpperCase())).click();
+		 WebElement wele = driver.findElement(By.xpath(""));
+		 waitExplicitDuration(driver, wele);
+		 ArrayList<String> msgList = new ArrayList<String>();
+		 msgList.add("The product IPhone has been added to comparison list.");
+		 msgList.add("");
+		 msgList.add("The product Sony Xperia has been added to comparison list.");
+		 driver.findElement(By.xpath("")).click();
+		 String strTxt = driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/ul/li/ul/li/span")).getText().trim();
+		 Assert.assertEquals(msgList.get(0).toString(), strTxt);
+		 driver.findElement(By.xpath(".//*[@id='top']/body/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/ul/li[3]/div/div[3]/ul/li[2]/a")).click();	
+		 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		**/ 
   }
   
   @Test(priority=6, enabled=false)
